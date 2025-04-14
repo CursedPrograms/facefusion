@@ -54,6 +54,45 @@ commands:
 ```
 
 
+1. Download FFmpeg
+Go to the official site:
+https://ffmpeg.org/download.html
+
+For Windows, you can use this direct option:
+
+https://www.gyan.dev/ffmpeg/builds/
+
+Download the "Essentials" zip
+
+2. Extract it
+Extract the downloaded .zip file (e.g. to D:\ffmpeg)
+
+Inside you'll find a folder like ffmpeg-5.x-full_build\bin
+
+3. Add FFmpeg to PATH
+Press Win + S → type "Environment Variables"
+
+Click “Edit the system environment variables” → Environment Variables
+
+Under System variables, find Path → click Edit
+
+Click New → add the path to the bin folder (e.g. D:\ffmpeg\ffmpeg-5.x-full_build\bin)
+
+Click OK on all windows to save
+
+4. Test it
+Close and reopen your terminal (CMD), then type:
+
+```
+ffmpeg -version
+```
+If it prints the version info, you're good.
+
+5. Run FaceFusion again
+```
+python facefusion.py run
+```
+
 Documentation
 -------------
 

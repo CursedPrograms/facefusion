@@ -54,43 +54,53 @@ commands:
 ```
 
 
-1. Download FFmpeg
-Go to the official site:
-https://ffmpeg.org/download.html
+### FFMpeg Setup (Windows)
 
-For Windows, you can use this direct option:
+1. **Download FFMpeg**  
+   Visit the following link and download the latest static build:  
+   https://www.gyan.dev/ffmpeg/builds/
 
-https://www.gyan.dev/ffmpeg/builds/
+2. **Extract the Archive**  
+   Unzip the downloaded archive to `C:\`.
 
-Download the "Essentials" zip
+3. **Rename and Organize**  
+   Rename the extracted folder to `ffmpeg`, and ensure the following folder structure:
 
-2. Extract it
-Extract the downloaded .zip file (e.g. to D:\ffmpeg)
-
-Inside you'll find a folder like ffmpeg-5.x-full_build\bin
-
-3. Add FFmpeg to PATH
-Press Win + S → type "Environment Variables"
-
-Click “Edit the system environment variables” → Environment Variables
-
-Under System variables, find Path → click Edit
-
-Click New → add the path to the bin folder (e.g. D:\ffmpeg\ffmpeg-5.x-full_build\bin)
-
-Click OK on all windows to save
-
-4. Test it
-Close and reopen your terminal (CMD), then type:
-
+```bash
+C:\ffmpeg\bin
+├── ffmpeg.exe
+├── ffplay.exe
+└── ffprobe.exe
 ```
-ffmpeg -version
-```
-If it prints the version info, you're good.
 
-5. Run FaceFusion again
-```
-python facefusion.py run
+4. **Set Environment Variable (Optional for Global Access)**  
+   To make `ffmpeg` accessible system-wide:
+
+   - Open **System Properties** > **Environment Variables**
+   - Under **User variables** (for your PC username), find and select **Path**
+   - Click **Edit** > **New** and paste:
+
+     ```
+     C:\ffmpeg\bin
+     ```
+
+   - Click **OK** to apply the changes
+  
+5. Test it
+     Close and reopen your terminal (CMD), then type:
+
+    ```
+    ffmpeg -version
+    ```
+    If it prints the version info, you're good.
+
+6. The code below will automatically append `C:\ffmpeg\bin` to the runtime path, so no need to set environment variables manually. 
+
+```bash
+# === CONFIG ===
+
+# Path fix for ffmpeg
+os.environ["PATH"] += os.pathsep + r"C:\ffmpeg\bin"
 ```
 
 Documentation

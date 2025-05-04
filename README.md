@@ -103,6 +103,25 @@ C:\ffmpeg\bin
 os.environ["PATH"] += os.pathsep + r"C:\ffmpeg\bin"
 ```
 
+## Requirements:
+
+FFMpeg
+
+```bash
+filetype==1.2.0
+gradio==5.9.1
+gradio-rangeslider==0.0.8
+numpy==2.2.0
+onnx==1.17.0
+onnxruntime==1.20.1
+opencv-python==4.10.0.84
+psutil==6.1.1
+pydantic==2.10.6
+tqdm==4.67.1
+scipy==1.14.1
+git+https://github.com/s0md3v/roop
+```
+
 Documentation
 -------------
 

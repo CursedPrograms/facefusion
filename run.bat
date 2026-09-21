@@ -1,15 +1,10 @@
 @echo off
+cd /d "%~dp0"
 
-set "VENV_DIR=psdenv"
-
-rem 
-if not exist "%VENV_DIR%" (
-    rem 
-    python -m venv "%VENV_DIR%"
+if not exist "psdenv\Scripts\python.exe" (
+    py -3.11 -m venv psdenv || python -m venv psdenv
+    psdenv\Scripts\python.exe -m pip install -r requirements.txt
 )
 
-rem 
-call "%VENV_DIR%\Scripts\activate" && python run.py
-
-rem 
+psdenv\Scripts\python.exe run.py %*
 pause
